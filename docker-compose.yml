@@ -1,0 +1,42 @@
+version: "1.0"
+
+x-common-variables: &common-variables
+  LOG_LEVEL: debug
+  NODE_ENV: development
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: "./api"
+    container_name: api
+    command: npm run ci
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`api.localhost`) && PathPrefix(`/api/v1`)"
+      - "traefik.http.routers.api.entrypoints=http"
+    environment:
+      <<: *common-variables
+      APP_PORT: 3000
+
+  client:
+    stdin_open: true
+    build:
+      dockerfile: Dockerfile
+      context: "./client"
+    container_name: client
+    command: npm run ci
+    ports:
+      - "3050:3050"
+    depends_on:
+      - api
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+    environment:
+      <<: *common-variables

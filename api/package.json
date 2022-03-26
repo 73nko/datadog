@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Simple Backend to return the CPU load",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "./node_modules/nodemon/bin/nodemon.js -r dotenv/config src/index.js",
+    "ci": "npm install && npm run dev",
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alex <apramos89@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "9.1.4",
+    "dotenv": "^16.0.0",
+    "fastify": "^3.27.4",
+    "fastify-cors": "^6.0.3",
+    "fastify-helmet": "^7.0.1",
+    "pino-pretty": "^7.5.3"
+  },
+  "devDependencies": {
+    "lint-staged": "^12.3.5",
+    "nodemon": "^2.0.15"
+  }
+}

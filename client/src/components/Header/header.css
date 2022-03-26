@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  position: sticky;
+  height: var(--size-l);
+  padding: calc(var(--size-m) * 1.5) var(--size-m);
+  box-shadow: var(--shadow-high);
+}
+
+.header h1 {
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 760px) {
+  .header h1 {
+    width: 100%;
+    text-align: left;
+    font-size: var(--size-m);
+  }
+}

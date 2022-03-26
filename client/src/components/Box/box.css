@@ -1,0 +1,22 @@
+.box {
+  box-shadow: var(--shadow-high);
+  border: 1px solid hsl(var(--main-color));
+  width: fit-content;
+  border-radius: calc(var(--size-s) / 5);
+  background-color: hsl(var(--main-color) / 8%);
+}
+
+.box header {
+  display: flex;
+  padding: calc(var(--size-s) / 2);
+  justify-content: center;
+  align-items: center;
+  color: hsl(var(--font-secondary-color));
+  font-size: var(--size-m);
+  font-weight: 700;
+  border-bottom: 1px solid hsl(var(--main-color));
+}
+
+.box section {
+  padding: calc(var(--size-s) / 2) calc(var(--size-m));
+}

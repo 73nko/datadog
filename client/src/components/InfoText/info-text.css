@@ -1,0 +1,6 @@
+.info-text {
+  font-size: var(--size-l);
+  font-weight: 900;
+  font-family: var(--display-font);
+  text-shadow: 2px 3px 5px hsl(var(--dark) / 0.4);
+}

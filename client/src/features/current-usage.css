@@ -1,0 +1,32 @@
+.current-usage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--size-l) * 2) var(--size-l);
+}
+
+.current-usage .alarms {
+  width: auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--size-l);
+}
+
+@media screen and (max-width: 760px) {
+  .current-usage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: var(--size-l);
+  }
+
+  .current-usage .alarms {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: var(--size-l);
+  }
+}

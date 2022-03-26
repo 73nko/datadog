@@ -1,0 +1,117 @@
+.message-holder {
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  padding: 0;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.message-holder .life {
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  width: auto;
+  background-image: linear-gradient(
+    130deg,
+    hsl(var(--secondary-color) / 0.4),
+    hsl(var(--secondary-color))
+  );
+  height: 5px;
+}
+
+.toast.info {
+  --color: var(--info);
+}
+
+.toast.success {
+  --color: var(--success);
+}
+
+.toast.warning {
+  --color: var(--warning);
+}
+
+.toast.danger {
+  --color: var(--danger);
+}
+
+.toast {
+  box-shadow: var(--shadow-high);
+  border: 1px solid hsl(var(--main-color));
+  width: fit-content;
+  min-width: calc(var(--size-l) * 10);
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--size-s) / 5);
+  background-color: hsl(var(--main-color) / 8%);
+  padding: calc(var(--size-s)) calc(var(--size-m));
+  margin: calc(var(--size-s)) 0;
+  background-color: hsl(var(--color) / 20%);
+  border: 1px solid hsl(var(--color) / 50%);
+  color: hsl(var(--color) / 8);
+  box-shadow: 0px 0.6px 0.8px hsl(var(--color) / 0.5),
+    0px 2.9px 3.7px -0.8px hsl(var(--color) / 0.11),
+    0.2px 10px 12.6px -1.6px hsl(var(--color) / 0.19);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.toast button {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
+  top: calc(var(--size-s) / 2);
+  right: calc(var(--size-s) / 2);
+  background-color: inherit;
+  border: inherit;
+  border-radius: 50px;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.toast button svg {
+  fill: hsl(var(--color) / 8);
+}
+
+.toast button:hover {
+  box-shadow: 3px 3px 3px hsl(var(--dark) / 0.3);
+  border: 1px solid hsl(var(--color));
+  background-color: hsl(var(--color) / 50%);
+}
+
+.toast p {
+  margin: 0;
+  font-size: var(--size-s);
+  text-shadow: 0.5px 0.5px 0.5px hsl(var(--dark) / 0.4);
+  color: inherit;
+}
+
+.toast p::before {
+  padding-right: var(--size-s);
+  text-shadow: 3px 3px 5px hsl(var(--dark) / 0.5);
+}
+
+.toast.info p::before {
+  content: "ℹ️";
+}
+
+.toast.success p::before {
+  content: "✅";
+}
+
+.toast.warning p::before {
+  content: "⚠️";
+}
+
+.toast.danger p::before {
+  content: "❌";
+}
+
+.toast:hover {
+  box-shadow: 0px 0.8px 1px hsl(var(--color) / 0.15),
+    0px 3.1px 3.9px -1px hsl(var(--color) / 0.25),
+    0.4px 12px 13.2px -2px hsl(var(--color) / 0.39);
+}

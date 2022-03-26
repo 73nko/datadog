@@ -1,0 +1,12 @@
+.historical-usage .recharts-text {
+  color: hsl(var(--font-primary-color));
+  fill: hsl(var(--font-primary-color));
+}
+
+.historical-usage .recharts-label-y {
+  font-size: var(--size-s);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  position: absolute;
+  bottom: 0;
+}

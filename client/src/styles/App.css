@@ -1,0 +1,116 @@
+:root {
+  --main-color-h: 239deg;
+  --main-color-s: 53%;
+  --main-color-l: 59%;
+
+  --secondary-color-h: 180deg;
+  --secondary-color-s: 66%;
+  --secondary-color-l: 63%;
+
+  --indigo: 263 90% 51%;
+  --purple: 261 51% 51%;
+  --success: 134 61% 41%;
+  --info: 188 78% 41%;
+  --warning: 45 100% 51%;
+  --danger: 354 70% 54%;
+  --dark: 210 10% 23%;
+  --white: 10deg, 20%, 80%;
+
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+
+  --size-l: 2.5em;
+  --size-m: 1.4em;
+  --size-s: 1em;
+  --size-xs: 0.8em;
+}
+
+body[data-theme="light"] {
+  --main-color: var(--main-color-h) var(--main-color-s) var(--main-color-l);
+
+  --secondary-color: var(--secondary-color-h) var(--secondary-color-s)
+    var(--secondary-color-l);
+
+  --font-primary-color: var(--main-color-h) var(--main-color-s)
+    calc(var(--main-color-l));
+
+  --font-secondary-color: var(--secondary-color-h) var(--secondary-color-s)
+    calc(var(--secondary-color-l) - 15%);
+
+  --background-color: hsl(var(--white));
+}
+
+body[data-theme="dark"] {
+  --secondary-color: var(--main-color-h) var(--main-color-s) var(--main-color-l);
+
+  --main-color: var(--secondary-color-h) var(--secondary-color-s)
+    var(--secondary-color-l);
+
+  --font-primary-color: var(--main-color-h) var(--main-color-s)
+    calc(var(--main-color-l) + 30%);
+
+  --font-secondary-color: var(--secondary-color-h) var(--secondary-color-s)
+    calc(var(--secondary-color-l) + 30%);
+
+  --background-color: var(--main-color-h) var(--main-color-s)
+    calc(var(--main-color-l) - 40%);
+}
+
+body {
+  --shadow-high: 0px 0.6px 0.8px hsl(var(--main-color) / 0.12),
+    0px 2.9px 3.7px -0.8px hsl(var(--main-color) / 0.21),
+    0.2px 10px 12.6px -1.6px hsl(var(--main-color) / 0.29);
+  font-family: var(--font-primary);
+  color: hsl(var(--font-primary-color));
+  background-color: hsl(var(--background-color));
+  font-size: 85%;
+  font-weight: 300;
+  line-height: 1.6;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 760px) {
+  body {
+    font-size: 65%;
+  }
+}
+
+@media screen and (min-width: 1580px) {
+  body {
+    font-size: 100%;
+  }
+}
+
+p {
+  font-size: var(--size-s);
+  font-family: var(--font-primary);
+  position: relative;
+  text-align: justify;
+}
+
+p em {
+  font-size: var(--size-m);
+  font-weight: 400;
+  font-family: var(--font-display);
+  color: hsl(var(--font-secondary-color));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.6;
+}
+.App main {
+  width: 100vw;
+  height: calc(100vh - var(--size-l));
+  padding: calc(var(--size-m) * 1.5) var(--size-m);
+}
