@@ -14,6 +14,8 @@ import "./historical-usage.css";
 
 const HistoricalUsage = (): JSX.Element => {
   const { cpuMeasures } = useGlobalContext();
+
+  // Format the data to be used by recharts
   const data = cpuMeasures.map((m) => ({
     load: getLoadOnPercentage(m?.load),
     time: getTime(new Date(m?.date)),

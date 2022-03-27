@@ -15,6 +15,7 @@ function App() {
     <div className="App">
       <Header>
         <h1>{APP_TITLE}</h1>
+        {/* Change between dark and light themes. I just wanted to try it */}
         <ThemeToggler />
       </Header>
 

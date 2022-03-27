@@ -23,6 +23,8 @@ const CurrentUsage = (): JSX.Element => {
 
 export default CurrentUsage;
 
+// We are memoizing the component to avoid re-rendering it when a new measure is fetched
+// in most of the cases, the measure will not change.
 const MeasureBox = memo(({ measureLoad }: { measureLoad: number }) => (
   <Box title="CPU Usage">
     <InfoText text={`${measureLoad}%`} />

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
-import { useTransition } from "@react-spring/web";
+import { MouseEvent, useEffect, useMemo, useState } from "react";
+import { SpringValue, useTransition } from "@react-spring/web";
 import { animated } from "@react-spring/web";
 import "./message-holder.css";
 
@@ -20,11 +20,45 @@ interface Props {
 
 let id = 0;
 
-function MessageHolder({
+const MessageHolder = (props: Props): JSX.Element => {
+  const { transitions, refMap, cancelMap } = useAnimations(props);
+
+  const handleDismiss = (
+    e: MouseEvent,
+    item: toast,
+    life: SpringValue<string>
+  ) => {
+    e.stopPropagation();
+    if (cancelMap.has(item) && life.get() !== "0%") cancelMap.get(item)();
+  };
+
+  return (
+    <div className="message-holder">
+      {transitions(({ life, ...style }, item) => (
+        <animated.div
+          className={`toast ${item.type}`}
+          style={style}
+          ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
+        >
+          <animated.div style={{ right: life }} className="life" />
+          <button onClick={(e) => handleDismiss(e as any, item, life)}>
+            <Close />
+          </button>
+          <p className="message">{item.message}</p>
+        </animated.div>
+      ))}
+    </div>
+  );
+};
+
+export default MessageHolder;
+
+const useAnimations = ({
   config = { tension: 125, friction: 20, precision: 0.1 },
   timeout = 3000,
   children,
-}: Props) {
+}: Props) => {
+  // We use a a weakMap to clean the ref when the alert is removed
   const refMap = useMemo(() => new WeakMap(), []);
   const cancelMap = useMemo(() => new WeakMap(), []);
   const [items, setItems] = useState<toast[]>([]);
@@ -55,32 +89,12 @@ function MessageHolder({
     });
   }, []);
 
-  return (
-    <div className="message-holder">
-      {transitions(({ life, ...style }, item) => (
-        <animated.div
-          className={`toast ${item.type}`}
-          style={style}
-          ref={(ref: HTMLDivElement) => ref && refMap.set(item, ref)}
-        >
-          <animated.div style={{ right: life }} className="life" />
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              if (cancelMap.has(item) && life.get() !== "0%")
-                cancelMap.get(item)();
-            }}
-          >
-            <Close />
-          </button>
-          <p className="message">{item.message}</p>
-        </animated.div>
-      ))}
-    </div>
-  );
-}
-
-export default MessageHolder;
+  return {
+    transitions,
+    refMap,
+    cancelMap,
+  };
+};
 
 const Close = (): JSX.Element => (
   <svg
