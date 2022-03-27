@@ -51,6 +51,14 @@ A user should be able to view your application to answer the following questions
   I've used a common MVC architecture that will allow us to easily grows the API, adding a DDDBB or adding more endpoints.
   In a real-world application, it would be needed to add some kind of monitoring and error watching. Probably something like Sentry or Datadog.
 
+  ❗ To force a heavy load CPU usage I've created a very simple script in `./bin/` folder. You can run it:
+
+  ```bash
+  node bin/index.js stress 50
+  ```
+
+  The script will launch a Fibonacci calculation in all the cores that will power your computer to the limit! 🔋
+
 - ### Client
 
   The client is a [React](https://reactjs.org/) based application. I've used [Vite](https://vitejs.dev/) as an Application builder.
@@ -62,7 +70,7 @@ A user should be able to view your application to answer the following questions
 
   I'm using also a [useEncapsulation](https://kyleshevlin.com/use-encapsulation) pattern in every component it has some logic. It's a pattern that I liked and allows me to have a separation between logic and UI, and in case, it's very useful for testing.
 
-- ### CSS
+- ### Styles
 
   I decided to use vanilla CSS for styles the app. Besides I am more used to working with styled-components, I think I could show a better knowledge using the last CSS features. All the CSS depends hugely on custom properties. Allowing us to have 2 completely different themes with only a few properties. It also allows having a very easy cool responsive.
 
@@ -82,7 +90,7 @@ This two libraries allowing us to have a very real integration test for react.
 To launch the test you need to be in the `client/` folder and run:
 
 ```bash
-  npm run test
+npm run test
 ```
 
 ## 🔜 Future Implementations

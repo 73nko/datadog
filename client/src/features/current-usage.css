@@ -30,3 +30,14 @@
     gap: var(--size-l);
   }
 }
+
+.current-usage .details {
+  list-style: circle;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--size-s);
+  font-size: calc(var(--size-m) * 0.8);
+  font-weight: 600;
+}
