@@ -85,7 +85,7 @@ A user should be able to view your application to answer the following questions
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)](#testing)
 
 I've decided to use [testing-library](https://testing-library.com/) with [MSW](https://mswjs.io/) for testing.
-This two libraries allowing us to have a very real integration test for react.
+These two libraries allow us to have a very real integration test for react.
 
 To launch the test you need to be in the `client/` folder and run:
 
@@ -100,6 +100,12 @@ npm run test
 - I wanted to add storybook to have a small system design view of the UI components. But the testing takes me longer I though.
 - I would like to add more testing. Add E2E tests with cypress would be cool.
 - I would like to add a react custom hook to save data in the local storage and save the user theme selection
+- I didn't add a linter or prettifier. It's running the default typescript linter but it would be great add more lint rules.
+- In a real world app, I would had added a CI pipeline integration.
 - It would be great to add a custom hook to show notifications in the tab title so we could notice a new alarm had been fired even when the user is not in the application tab.
+
+### Consideration
+
+I've been using git for development but I have deleted the folder before zipping it. Then I realized that maybe you wanted to see how I work with git. Sorry, but it was too late. I can say that I know how to work with gitflow and I'm very tidy with the commits
 
 </details>
