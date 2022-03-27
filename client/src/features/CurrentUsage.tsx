@@ -10,7 +10,7 @@ import "./current-usage.css";
 
 const CurrentUsage = (): JSX.Element => {
   const { cpuMeasures, alarms, recovers } = useGlobalContext();
-  const lastMeasure = cpuMeasures.at(-1);
+  const lastMeasure = cpuMeasures[cpuMeasures.length - 1];
 
   const measureLoad = lastMeasure ? getLoadOnPercentage(lastMeasure.load) : 0;
   return (

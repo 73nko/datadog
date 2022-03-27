@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/v1";
+import { API_URL } from "../utils/constants";
 
 export const getUsage = async () => {
   const response = await fetch(`${API_URL}/cpu/usage`);

@@ -1,4 +1,10 @@
-import React, { ReactElement } from "react";
+import {
+  createContext,
+  ReactElement,
+  useCallback,
+  useContext,
+  useRef,
+} from "react";
 import { useCpuUsage } from "./useCpuUsage";
 import MessageHolder, {
   AddFunction,
@@ -17,7 +23,7 @@ interface GlobalContext {
   recovers: CPUMeasure[];
 }
 
-const GlobalContext = React.createContext({
+const GlobalContext = createContext({
   cpuMeasures: [] as CPUMeasure[],
   alarms: [] as CPUMeasure[],
   recovers: [] as CPUMeasure[],
@@ -26,7 +32,7 @@ const GlobalContext = React.createContext({
 GlobalContext.displayName = "GlobalContext";
 
 const useGlobalContext = (): GlobalContext => {
-  const context = React.useContext(GlobalContext);
+  const context = useContext(GlobalContext);
   if (context === undefined) {
     throw new Error("useGlobalContext must be used within a GlobalProvider");
   }
@@ -38,13 +44,13 @@ interface Props {
 }
 
 export const GlobalProvider = ({ children }: Props): ReactElement => {
-  const ref = React.useRef<null | AddFunction>(null);
+  const ref = useRef<null | AddFunction>(null);
 
-  const launchALarm = React.useCallback(() => {
+  const launchALarm = useCallback(() => {
     ref.current?.(`Your CPU went to a heavy load`, "warning");
   }, [ref]);
 
-  const launchRecover = React.useCallback(() => {
+  const launchRecover = useCallback(() => {
     ref.current?.(`The CPU has recovered from the heavy load`, "info");
   }, [ref]);
 

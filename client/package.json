@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "test": "jest",
     "ci": "npm install && npm run dev",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -13,16 +14,27 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-query": "^3.34.17",
-    "recharts": "^2.1.9",
-    "uuid": "^8.3.2"
+    "recharts": "^2.1.9"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/uuid": "^8.3.4",
+    "@types/whatwg-fetch": "^0.0.33",
     "@vitejs/plugin-react": "^1.0.7",
     "@vitejs/plugin-react-refresh": "^1.3.6",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^27.5.1",
+    "msw": "^0.39.2",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
     "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "vite": "^2.8.0",
+    "whatwg-fetch": "^3.6.2"
   }
 }

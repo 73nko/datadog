@@ -22,7 +22,7 @@ const HistoricalUsage = (): JSX.Element => {
   return (
     <section className="historical-usage">
       <ResponsiveContainer width="95%" height={400}>
-        <AreaChart data={data}>
+        <AreaChart data={data} id="cpu-usage">
           <CartesianGrid horizontal={false} vertical={false} />
           <XAxis dataKey="time" />
           <YAxis dataKey="load" />

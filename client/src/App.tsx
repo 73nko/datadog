@@ -6,9 +6,9 @@ import Header from "./components/Header";
 import CurrentUsage from "./features/CurrentUsage";
 import HistoricalUsage from "./features/HistoricalUsage";
 
-import "./styles/App.css";
+import { APP_TITLE } from "./utils/constants";
 
-const APP_TITLE = "Load Monitoring Web Application";
+import "./styles/App.css";
 
 function App() {
   return (
